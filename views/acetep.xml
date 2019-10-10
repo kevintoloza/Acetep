@@ -51,7 +51,7 @@
    parent="menu_sub"
    name="Nivel"
    action="nivel_list_action"
-   sequence="1"
+   sequence="4"
    /> 
 
 <!--form basico para Seccion-->   
@@ -160,19 +160,33 @@
 <field name="arch" type="xml">
  <form string="Niño">
  <sheet>
+  <div class="oe_title oe_inline">
+        <label for="name" class="oe_edit_only"/>
+        <h1>
+         <field name="name" required="1"/>
+        </h1>
+    </div> 
  <group>
- 
-<field name="name" placeholder="Nombre"/>
-<field name="employed_id" placeholder="Instructora de la clase de prueba"/>
-<field name="partner_id" placeholder="Padre" required="1"/> 
+<field name="employed_id" placeholder="Instructora de la clase de prueba" invisible="1"/>
 <field name="birthday" placeholder="Fecha de cumpleaños"/>
-<field name="datetest" placeholder="Fecha de la clase de prueba"/>
-<field name="is_done"/>
-<field name="how" placeholder="Como se entero"/> 
+<field name="partner_id" placeholder="Padre" required="1"/> 
+<field name="programastate"/>
+<field name="datetest" placeholder="Fecha de la clase de prueba" invisible="1"/>
+<field name="is_done" invisible="1"/>
+<field name="how" placeholder="Como se entero" invisible="1"/> 
+<field name="nivel_id" invisible="1"/>
+<field name="recorrido" invisible="1"/>
+<field name="fecharecorrido" invisible="1"/>
 
 
  </group>
+ <group>
+</group>
  </sheet>
+  <div class="oe_chatter">
+    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+            <field name="message_ids" widget="mail_thread"/>
+     </div>
  </form>
  </field> 
  </record>
@@ -212,7 +226,7 @@
    parent="menu_sub"
    name="Niño "
    action="nino_list_action"
-   sequence="4"
+   sequence="1"
    /> 
 
  </data>
