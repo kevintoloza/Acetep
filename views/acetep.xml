@@ -159,6 +159,12 @@
 <field name="model">acetep.nino</field>
 <field name="arch" type="xml">
  <form string="Niño">
+      <header>
+     <!--     <button name="Inscribir" states="No Inscrito" string="Inscrito" type="object" class="oe_highlight"/>
+          <button name="cancelar" states="No Inscrito" string="Cancelar" type="object" class="oe_highlight"/>
+          <button name="regresar" states="Inscrito,Cancelado" string="Regresar a Cancelado" type="object" class="oe_highlight"/>
+          <field name="state" widget="statusbar"/>
+        </header>-->   
  <sheet>
   <div class="oe_title oe_inline">
         <label for="name" class="oe_edit_only"/>
