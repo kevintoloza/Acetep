@@ -167,20 +167,20 @@
         </h1>
     </div> 
  <group>
-<field name="employed_id" placeholder="Instructora de la clase de prueba" invisible="1"/>
 <field name="birthday" placeholder="Fecha de cumpleaños"/>
 <field name="partner_id" placeholder="Padre" required="1"/> 
+<field name="how" placeholader="Como se entero"/> 
 <field name="programastate"/>
-<field name="datetest" placeholder="Fecha de la clase de prueba" invisible="1"/>
-<field name="is_done" invisible="1"/>
-<field name="how" placeholder="Como se entero" invisible="1"/> 
-<field name="nivel_id" invisible="1"/>
-<field name="recorrido" invisible="1"/>
-<field name="fecharecorrido" invisible="1"/>
+<field name="recorrido"  attrs="{'invisible':[('programastate', '!=', 'Gymkids'),('programastate', '!=', 'Preschoolstep')]}"/>
+<field name="fecharecorrido" attrs="{'invisible':[('programastate', '!=', 'Preschoolstep'), ('programastate', '!=', 'Gymkids')]}"/>
 
 
- </group>
- <group>
+<field name="claseprueba" attrs="{'invisible':[('programastate', '!=', 'Gymboree')]}"/>
+<field name="nivel_id"  attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'Gymboree')]}"/>   <!--Condicion OR '|' -->   
+<field name="datetest" placeholder="Fecha de la clase de prueba"  attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'Gymboree')]}"/>
+<field name="employed_id" placeholder="Instructora de la clase de prueba" attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'Gymboree')]}"/>
+
+
 </group>
  </sheet>
   <div class="oe_chatter">
@@ -200,8 +200,6 @@
 <field name="name" placeholder="Nombre"/>
 <field name="partner_id" placeholder="Padre"/>  
 <field name="birthday" placeholder="Fecha de cumpleaños"/>
-<field name="datetest" placeholder="Fecha de la clase de prueba"/>
-<field name="employed_id" placeholder="Instructora de la clase de prueba"/> 
 
  </tree>
  </field>

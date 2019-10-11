@@ -30,17 +30,17 @@ class Nino(models.Model):
     _name = 'acetep.nino'
     _inherit= ['mail.thread']
     _description='Informacion del niño'
-    name = fields.Char(string='Nombre')
-    birthday = fields.Date(string="Fecha de Nacimiento")
-    partner_id = fields.Many2one(comodel_name='res.partner' ,string='Padre') #Nombre del padre
-    employed_id = fields.Many2one(comodel_name='hr.employee' ,string='Instructora de la clase de prueba')
-    datetest = fields.Date(string="Fecha de la clase de prueba")
-    how = fields.Selection([('Redes sociales','Redes sociales'), ('Referido','Referido'), ('Familiar','Familiar'), ('Pagina web','Pagina web'),  ('Pasaba por el local','Pasaba por el local'), ('Alianza','Alianza'), ('Otros','Otros')], string="Como se entero?")
-    is_done = fields.Boolean('Sin clase de prueba')
-    programastate = fields.Selection([('Gymboree','Gymboree'), ('Kinder','GymKids'), ('Preschool','Preschool')], string="Cual programa viene?")
-    nivel_id = fields.Many2one(comodel_name='acetep.nivel', string="Nivel")
-    recorrido = fields.Many2one(comodel_name='hr.employee', string="Quien realizo el recorrido?")
-    fecharecorrido = fields.Date(string="Fecha recorrido")
+    name = fields.Char(string='Nombre',track_visibility=True)
+    birthday = fields.Date(string="Fecha de Nacimiento",track_visibility=True)
+    partner_id = fields.Many2one(comodel_name='res.partner' ,string='Padre', track_visibility=True) #Nombre del padre
+    employed_id = fields.Many2one(comodel_name='hr.employee' ,string='Instructora de la clase de prueba', track_visibility=True)
+    datetest = fields.Date(string="Fecha de la clase de prueba", track_visibility=True)
+    how = fields.Selection([('Redes sociales','Redes sociales'), ('Referido','Referido'), ('Familiar','Familiar'), ('Pagina web','Pagina web'),  ('Pasaba por el local','Pasaba por el local'), ('Alianza','Alianza'), ('Otros','Otros')], string="Como se entero?",track_visibility=True)
+    claseprueba = fields.Selection([('Si','Si'), ('No','No')],string="Toma clase de prueba?", track_visibility=True)
+    programastate = fields.Selection([('Gymboree','Gymboree'), ('Gymkids','GymKids'), ('Preschoolstep','Pre school step')], string="Cual programa viene?", track_visibility=True)
+    nivel_id = fields.Many2one(comodel_name='acetep.nivel', string="Nivel", track_visibility=True)
+    recorrido = fields.Many2one(comodel_name='hr.employee', string="Quien realizo el recorrido?", track_visibility=True)
+    fecharecorrido = fields.Date(string="Fecha recorrido", track_visibility=True)
 
 
 class Invoice(models.Model):
