@@ -41,6 +41,8 @@ class Nino(models.Model):
     nivel_id = fields.Many2one(comodel_name='acetep.nivel', string="Nivel", track_visibility=True)
     recorrido = fields.Many2one(comodel_name='hr.employee', string="Quien realizo el recorrido?", track_visibility=True)
     fecharecorrido = fields.Date(string="Fecha recorrido", track_visibility=True)
+    sexo = fields.Selection([('Masculino','Masculino'), ('Femenino','Femenino')],string="Genero", track_visibility=True)
+
 
 
 class Invoice(models.Model):

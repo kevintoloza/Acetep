@@ -163,22 +163,21 @@
   <div class="oe_title oe_inline">
         <label for="name" class="oe_edit_only"/>
         <h1>
-         <field name="name" required="1"/>
+         <field name="name" required="1" style="text-transform: uppercase"/>
         </h1>
     </div> 
  <group>
 <field name="birthday" placeholder="Fecha de cumpleaños"/>
-<field name="partner_id" placeholder="Padre" required="1"/> 
+<field name="partner_id" placeholder="Padre" required="1"/>
+<field name="sexo"/>  
 <field name="how" placeholader="Como se entero"/> 
 <field name="programastate"/>
 <field name="recorrido"  attrs="{'invisible':[('programastate', '!=', 'Gymkids'),('programastate', '!=', 'Preschoolstep')]}"/>
 <field name="fecharecorrido" attrs="{'invisible':[('programastate', '!=', 'Preschoolstep'), ('programastate', '!=', 'Gymkids')]}"/>
-
-
 <field name="claseprueba" attrs="{'invisible':[('programastate', '!=', 'Gymboree')]}"/>
 <field name="nivel_id"  attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'Gymboree')]}"/>   <!--Condicion OR '|' -->   
 <field name="datetest" placeholder="Fecha de la clase de prueba"  attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'Gymboree')]}"/>
-<field name="employed_id" placeholder="Instructora de la clase de prueba" attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'Gymboree')]}"/>
+<field name="employed_id" placeholder="Instructora de la clase de prueba" attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'Gymboree')], 'required':[('claseprueba', '=', 'Si'),('programastate', '=', 'Gymboree')]}"/>
 
 
 </group>
