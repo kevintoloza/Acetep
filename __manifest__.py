@@ -4,7 +4,7 @@
     "name": "Acetep",
     "category": '',
     "summary": """
-     Mantenimiento acetep .""",
+     Mantenimiento acetep y configuracion .""",
     "description": """
 	   Mantenimiento y configuracion
 
