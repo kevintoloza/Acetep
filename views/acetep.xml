@@ -159,12 +159,12 @@
 <field name="model">acetep.nino</field>
 <field name="arch" type="xml">
  <form string="Niño">
-     <!-- <header>
-          <button name="Inscribir" states="No Inscrito" string="Inscrito" type="object" class="oe_highlight"/>
-          <button name="cancelar" states="No Inscrito" string="Cancelar" type="object" class="oe_highlight"/>
-          <button name="regresar" states="Inscrito,Cancelado" string="Regresar a Cancelado" type="object" class="oe_highlight"/>
-          <field name="state" widget="statusbar"/>
-        </header>-->   
+    <header>
+    <button name="Inscribir" states="No inscrito" string="Aprobar" type="object" class="oe_highlight"/>
+    <button name="cancelar" states="No inscrito" string="Cancelar" type="object" class="oe_highlight"/>
+    <button name="regresar" states="Inscrito,Cancelado" string="Regresar a no inscrito" type="object" class="oe_highlight"/>
+    <field name="state" widget="statusbar"/>
+    </header>
  <sheet>
   <div class="oe_title oe_inline">
         <label for="name" class="oe_edit_only"/>
@@ -178,12 +178,13 @@
 <field name="sexo"/>  
 <field name="how" placeholader="Como se entero"/> 
 <field name="programastate"/>
+<field name="department_id" invisible="1"/>
 <field name="recorrido"  attrs="{'invisible':[('programastate', '!=', 'Gymkids'),('programastate', '!=', 'Preschoolstep')]}"/>
 <field name="fecharecorrido" attrs="{'invisible':[('programastate', '!=', 'Preschoolstep'), ('programastate', '!=', 'Gymkids')]}"/>
 <field name="claseprueba" attrs="{'invisible':[('programastate', '!=', 'Gymboree')]}"/>
 <field name="nivel_id"  attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'Gymboree')]}"/>   <!--Condicion OR '|' -->   
 <field name="datetest" placeholder="Fecha de la clase de prueba"  attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'Gymboree')]}"/>
-<field name="employed_id" placeholder="Instructora de la clase de prueba" attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'Gymboree')], 'required':[('claseprueba', '=', 'Si'),('programastate', '=', 'Gymboree')]}"/>
+<field name="employed_id" placeholder="Instructora de la clase de prueba" attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'Gymboree')], 'required':[('claseprueba', '=', 'Si'),('programastate', '=', 'Gymboree')]}" domain= "[['department_id' ,'=', programastate]]"/>
 
 
 </group>

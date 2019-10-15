@@ -32,6 +32,7 @@ class Nino(models.Model):
     _description='Informacion del niño'
     name = fields.Char(string='Nombre',track_visibility=True)
     birthday = fields.Date(string="Fecha de Nacimiento",track_visibility=True)
+    department_id = fields.Many2one(comodel_name='hr.department',track_visibility=True)
     partner_id = fields.Many2one(comodel_name='res.partner' ,string='Padre', track_visibility=True) #Nombre del padre
     employed_id = fields.Many2one(comodel_name='hr.employee' ,string='Instructora de la clase de prueba', track_visibility=True)
     datetest = fields.Date(string="Fecha de la clase de prueba", track_visibility=True)
@@ -42,10 +43,25 @@ class Nino(models.Model):
     recorrido = fields.Many2one(comodel_name='hr.employee', string="Quien realizo el recorrido?", track_visibility=True)
     fecharecorrido = fields.Date(string="Fecha recorrido", track_visibility=True)
     sexo = fields.Selection([('Masculino','Masculino'), ('Femenino','Femenino')],string="Genero", track_visibility=True)
-    state=fields.Selection(selection=[('No Inscrito', ' No Inscrito')
-                                    ,('Inscrito','Inscrito')
+    state=fields.Selection(selection=[('No inscrito', 'No inscrito')
+                                    ,('Inscrito', 'Inscrito')
                                     ,('Cancelado', 'Cancelado')]
-                                    , string='Estado',required=True,default='No Inscrito',track_visibility=True)
+                                    , string='Estado',required=True,default='No inscrito',track_visibility=True)
+
+    @api.one
+    def aprobar(self):
+        for r in self:
+            r.state='Inscrito'
+    
+    @api.one
+    def regresar(self):
+        for r in self:
+            r.state='No inscrito'
+    
+    @api.one
+    def cancelar(self):
+        for r in self:
+            r.state='Cancelado'
 
 
 class Invoice(models.Model):
