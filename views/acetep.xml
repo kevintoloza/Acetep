@@ -160,9 +160,9 @@
 <field name="arch" type="xml">
  <form string="Niño">
     <header>
-    <button name="Inscribir" states="No inscrito" string="Aprobar" type="object" class="oe_highlight"/>
+    <button name="aprobar" states="No inscrito" string="Inscribir" type="object" class="oe_highlight"/>
     <button name="cancelar" states="No inscrito" string="Cancelar" type="object" class="oe_highlight"/>
-    <button name="regresar" states="Inscrito,Cancelado" string="Regresar a no inscrito" type="object" class="oe_highlight"/>
+    <button name="regresar" states="Inscrito,Cancelado" string="Regresar a No inscrito" type="object" class="oe_highlight"/>
     <field name="state" widget="statusbar"/>
     </header>
  <sheet>

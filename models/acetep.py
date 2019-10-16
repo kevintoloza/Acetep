@@ -53,6 +53,7 @@ class Nino(models.Model):
         for r in self:
             r.state='Inscrito'
     
+    
     @api.one
     def regresar(self):
         for r in self:
@@ -62,7 +63,6 @@ class Nino(models.Model):
     def cancelar(self):
         for r in self:
             r.state='Cancelado'
-
 
 class Invoice(models.Model):
     _inherit='account.invoice.line'
