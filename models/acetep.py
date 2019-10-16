@@ -38,7 +38,7 @@ class Nino(models.Model):
     datetest = fields.Date(string="Fecha de la clase de prueba", track_visibility=True)
     how = fields.Selection([('Redes sociales','Redes sociales'), ('Referido','Referido'), ('Familiar','Familiar'), ('Pagina web','Pagina web'),  ('Pasaba por el local','Pasaba por el local'), ('Alianza','Alianza'), ('Otros','Otros')], string="Como se entero?",track_visibility=True)
     claseprueba = fields.Selection([('Si','Si'), ('No','No')],string="Toma clase de prueba?", track_visibility=True)
-    programastate = fields.Selection([('Gymboree','Gymboree'), ('Gymkids','GymKids'), ('Preschoolstep','Pre school step')], string="Cual programa viene?", track_visibility=True)
+    programastate = fields.Selection([('GYMBOREE','GYMBOREE'), ('Gymkids','GymKids'), ('Preschoolstep','Pre school step')], string="Cual programa viene?", track_visibility=True)
     nivel_id = fields.Many2one(comodel_name='acetep.nivel', string="Nivel", track_visibility=True)
     recorrido = fields.Many2one(comodel_name='hr.employee', string="Quien realizo el recorrido?", track_visibility=True)
     fecharecorrido = fields.Date(string="Fecha recorrido", track_visibility=True)
