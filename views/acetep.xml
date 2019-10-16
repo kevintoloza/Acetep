@@ -181,10 +181,10 @@
 <field name="department_id" invisible="1"/>
 <field name="recorrido"  attrs="{'invisible':[('programastate', '!=', 'Gymkids'),('programastate', '!=', 'Preschoolstep')]}"/>
 <field name="fecharecorrido" attrs="{'invisible':[('programastate', '!=', 'Preschoolstep'), ('programastate', '!=', 'Gymkids')]}"/>
-<field name="claseprueba" attrs="{'invisible':[('programastate', '!=', 'Gymboree')]}"/>
-<field name="nivel_id"  attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'Gymboree')]}"/>   <!--Condicion OR '|' -->   
-<field name="datetest" placeholder="Fecha de la clase de prueba"  attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'Gymboree')]}"/>
-<field name="employed_id" placeholder="Instructora de la clase de prueba" attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'Gymboree')], 'required':[('claseprueba', '=', 'Si'),('programastate', '=', 'Gymboree')]}" domain= "[['department_id' ,'=', programastate]]"/>
+<field name="claseprueba" attrs="{'invisible':[('programastate', '!=', 'GYMBOREE')]}"/>
+<field name="nivel_id"  attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'GYMBOREE')]}"/>   <!--Condicion OR '|' -->   
+<field name="datetest" placeholder="Fecha de la clase de prueba"  attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'GYMBOREE')]}"/>
+<field name="employed_id" placeholder="Instructora de la clase de prueba" attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'GYMBOREE')], 'required':[('claseprueba', '=', 'Si'),('programastate', '=', 'GYMBOREE')]}" domain= "[['department_id' ,'=', programastate]]"/>
 
 
 </group>
