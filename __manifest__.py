@@ -15,7 +15,7 @@
     "version": '12.0.0.4',
     "depends": ['account','hr','account_asset'],
     "data": [
-    
+     
      'security/ir.model.access.csv',
      'views/acetep.xml',
      'views/partner.xml',

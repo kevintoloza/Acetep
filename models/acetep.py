@@ -68,7 +68,7 @@ class Invoice(models.Model):
     _inherit='account.invoice.line'
     nino_id = fields.Many2one(comodel_name='acetep.nino', string='Niño')
     nivel_id =fields.Many2one(comodel_name='acetep.nivel', string='Nivel')
-    seccion_id =fields.Many2one(comodel_name='acetep.seccion', string='seccion')
+    seccion_id =fields.Many2many(comodel_name='acetep.seccion', string='seccion')
     periodo_id =fields.Many2one(comodel_name='acetep.periodo', string='periodo')
 
 class Invoiceline(models.Model):
