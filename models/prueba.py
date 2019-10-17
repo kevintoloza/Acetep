@@ -32,6 +32,8 @@ class venta(models.Model):
                     x=self.env['prueba.prueba.producto'].create({'name': r.producto,'product_id': line.id,'venta_id': r.id})
                 r.producto=None
 
+                
+
 class ventaproducto(models.Model):
     _name = 'prueba.prueba.producto'
     name = fields.Char(string="Codigo")
