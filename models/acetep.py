@@ -6,6 +6,7 @@ from odoo.exceptions import UserError, ValidationError
 from odoo.tools import float_is_zero, float_compare, DEFAULT_SERVER_DATETIME_FORMAT
 from odoo import SUPERUSER_ID
 
+
 class Nivel(models.Model):
     _name = 'acetep.nivel'
     name = fields.Char(string='Nombre')
@@ -74,7 +75,7 @@ class Invoice(models.Model):
 class Invoiceline(models.Model):
     _inherit='account.invoice' 
     facturade=fields.Char(string="Factura a nombre de ")
-
+    long_name=fields.Char(string="Nombre Completo")
 
 class Employed(models.Model):
     _inherit='hr.employee'
