@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+ <!--form basico-->   
+<record model="ir.ui.view" id="crm_acetep_form">
+<field name="name">crm_acetep_form</field>
+<field name="model">crm.lead</field>
+<field name="inherit_id" ref="crm.crm_case_form_view_oppor" />
+<field name="arch" type="xml">
+<xpath expr="//field[@name='partner_id']" position="attributes">
+       <attribute name="domain">[('nino_id', '=', nino_id)]</attribute>
+</xpath>  
+<xpath expr="//field[@name='partner_id']" position="before">
+     <field name="nino_id" attrs="{'required':[('stage_id', '=', 'NUEVO')]}"/>   
+</xpath>  
+ </field>
+ </record>
+
+<record model="ir.ui.view" id="crm_create_acetep_form">
+<field name="name">crm_create_acetep_form</field>
+<field name="model">crm.lead</field>
+<field name="inherit_id" ref="crm.quick_create_opportunity_form" />
+<field name="arch" type="xml">
+<xpath expr="//field[@name='partner_id']" position="before">
+     <field name="nino_id"  />   
+</xpath> 
+<xpath expr="//field[@name='partner_id']" position="attributes">
+       <attribute name="domain">[('nino_id', '=', nino_id)]</attribute>
+</xpath>  
+
+ </field>
+ </record>
+
+ </data>
+</odoo>

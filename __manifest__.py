@@ -20,6 +20,7 @@
      'views/acetep.xml',
      'views/partner.xml',
      'views/factura.xml',
+     'views/crm.xml'
  
 
     ],
