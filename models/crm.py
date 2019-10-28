@@ -9,4 +9,4 @@ from odoo import SUPERUSER_ID
 class Crmupdate(models.Model):
     _inherit = 'crm.lead'
     nino_id = fields.Many2one(comodel_name='acetep.nino', string="Niño")
-
+   

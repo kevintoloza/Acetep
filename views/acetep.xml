@@ -177,7 +177,7 @@
 <field name="partner_id" placeholder="Padre" required="1"/>
 <field name="sexo"/>  
 <field name="how" placeholader="Como se entero" required="1"/> 
-<field name="programastate"/>
+<field name="programastate" required="1" />
 <field name="department_id" invisible="1"/>
 <field name="recorrido"  attrs="{'invisible':[('programastate', '!=', 'Gymkids'),('programastate', '!=', 'Preschoolstep')]}"/>
 <field name="fecharecorrido" attrs="{'invisible':[('programastate', '!=', 'Preschoolstep'), ('programastate', '!=', 'Gymkids')]}"/>

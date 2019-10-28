@@ -26,6 +26,9 @@ class Partersv(models.Model): #cliente padre
     _inherit = 'res.partner'
     nino_id = fields.One2many(comodel_name='acetep.nino', inverse_name='partner_id' )
   
+    @api.onchange('name')
+    def set_upper(self):
+        self.name = self.name.upper() if self.name else False  
 
 class Nino(models.Model):
     _name = 'acetep.nino'
@@ -64,6 +67,11 @@ class Nino(models.Model):
     def cancelar(self):
         for r in self:
             r.state='Cancelado'
+    
+    @api.onchange('name')
+    def set_upper(self):
+        self.name = self.name.upper() if self.name else False #Funcion upper tambien la funcion title pone la primera en mayuscula 
+    #update res_partner set "name"=upper("name"), display_name=upper(display_name); sql
 
 class Invoice(models.Model):
     _inherit='account.invoice.line'
