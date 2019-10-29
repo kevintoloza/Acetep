@@ -23,6 +23,7 @@
 <field name="arch" type="xml">
 <xpath expr="//field[@name='partner_id']" position="before">
      <field name="nino_id"  />   
+      <field name="programastate"  />   
 </xpath> 
 <xpath expr="//field[@name='partner_id']" position="attributes">
        <attribute name="domain">[('nino_id', '=', nino_id)]</attribute>

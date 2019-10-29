@@ -80,6 +80,7 @@ class Invoice(models.Model):
     seccion_id =fields.Many2many(comodel_name='acetep.seccion', string='seccion')
     periodo_id =fields.Many2one(comodel_name='acetep.periodo', string='periodo')
 
+
 class Invoiceline(models.Model):
     _inherit='account.invoice' 
     facturade=fields.Char(string="Factura a nombre de ")
