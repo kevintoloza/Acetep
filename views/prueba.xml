@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+ <!--form basico para prueba-->   
+<record model="ir.ui.view" id="prueba_form">
+<field name="name">prueba_form</field>
+<field name="model">prueba.prueba</field>
+<field name="arch" type="xml">
+ <form string="Prueba">
+<header>
+<button name="procesar" string="Orden de venta" type="object" class="oe_highlight"/>
+<button name="action_quotation_send" string="e-mail" type="object" class="oe_highlight"/>
+</header>
+<sheet>
+<group>
+<field name="partner_id" placeholder="cliente" readonly="True"/>
+<field name="codigo" placeholder="codigo" />
+
+</group>
+
+<group>
+<group>
+<field name="productocalculado" placeholder="codigo" invisible="1"/>
+ <div id="producto" onkeypress="if (event.which == 13 || event.keyCode == 13) {document.getElementById('boton').children[0].click()}">
+ <field name="producto" nolabel="1" placeholder="Productos" attrs="{'invisible':[('partner_id', '=', False)]}" default_focus="1"/>
+ </div>
+ </group>
+ <group>  
+ <div id="boton">
+ <button type="object" name="addProducto" string="agregar" invisible="1"/>
+ </div>
+ </group>
+</group>
+
+ <group>
+ <field name="product_ids" context="{'venta_id':active_id}" attrs="{'invisible':[('partner_id', '=', False)]}">
+  <tree>
+  <field name="name"/>
+  <field name="producto"/>
+  <field name="product_id"/>
+</tree>
+</field>
+</group>
+
+</sheet>
+</form>
+</field>
+</record>
+
+
+<!--Action para prueba-->
+        <record model="ir.actions.act_window" id="prueba_list_action">
+            <field name="name">Creacion de prueba </field>
+            <field name="res_model">prueba.prueba</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear prueba
+                </p>
+            </field>
+        </record>
+
+   <menuitem 
+   id="prueba_menu" 
+   parent="main_menu"
+   name="Prueba"
+   action="prueba_list_action"
+   sequence="2"
+   /> 
+
+ </data>
+</odoo>

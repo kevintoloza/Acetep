@@ -11,7 +11,7 @@
        <attribute name="domain">[('nino_id', '=', nino_id)]</attribute>
 </xpath>  
 <xpath expr="//field[@name='partner_id']" position="before">
-     <field name="nino_id" attrs="{'required':[('stage_id', '=', 'NUEVO')]}"/>   
+     <field name="nino_id" attrs="{'invisible':[('stage_id','!=', 3)]}"/>    <!--stage_id en valores numerico al agregarle .de la tabla crm.stage.-->   
 </xpath>  
  </field>
  </record>
@@ -21,13 +21,10 @@
 <field name="model">crm.lead</field>
 <field name="inherit_id" ref="crm.quick_create_opportunity_form" />
 <field name="arch" type="xml">
-<xpath expr="//field[@name='partner_id']" position="before">
-     <field name="nino_id"  />   
-      <field name="programastate"  />   
+<xpath expr="//field[@name='partner_id']" position="replace"> 
+     <field name="contacto"/>   
+      <field name="programastate" />   
 </xpath> 
-<xpath expr="//field[@name='partner_id']" position="attributes">
-       <attribute name="domain">[('nino_id', '=', nino_id)]</attribute>
-</xpath>  
 
  </field>
  </record>
