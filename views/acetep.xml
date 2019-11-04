@@ -3,8 +3,8 @@
     <data>
     
 <!--Menu-->
-<menuitem id="main_menu" name="Acetep"/>
-<menuitem id="menu_sub" name="Menu"
+<menuitem id="main_menu" name="Acetep" web_icon="Acetep,static/src/img/icon.png"/>
+<menuitem id="menu_sub" name="Menu" 
                   parent="main_menu"/>
 
  <!--form basico para nivel-->   
@@ -77,8 +77,8 @@
 <field name="model">acetep.seccion</field>
 <field name="arch" type="xml">
 <tree>
-<field name="name" placeholder="Nombre"/>
-<field name="horario" placeholder="Horario"/>
+<field name="name" placeholder="Horario"/>
+<field name="horario" placeholder="Seccion"/>
 <field name="nivel_id" placeholder="Nivel"/>
  </tree>
  </field>
@@ -103,54 +103,6 @@
    name="Seccion"
    action="seccion_list_action"
    sequence="2"
-   /> 
-
-
-<!--form basico para Periodo-->   
-<record model="ir.ui.view" id="acetep_periodo_form">
-<field name="name">acetep_periodo_form</field>
-<field name="model">acetep.periodo</field>
-<field name="arch" type="xml">
- <form string="periodo">
- <sheet>
- <group>
- <field name="name" placeholder="Nombre"/>
- </group>
- </sheet>
- </form>
- </field>
- </record>
-
-  <!--view tree para periodo-->   
-<record model="ir.ui.view" id="acetep_periodo_tree">
-<field name="name">acetep_periodo_tree</field>
-<field name="model">acetep.periodo</field>
-<field name="arch" type="xml">
-<tree>
-<field name="name" placeholder="Nombre"/>
- </tree>
- </field>
- </record>
- 
-
-<!--Action para nivel-->
-        <record model="ir.actions.act_window" id="periodo_list_action">
-            <field name="name">Creacion de periodo </field>
-            <field name="res_model">acetep.periodo</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">Crear periodo
-                </p>
-            </field>
-        </record>
-
-   <menuitem 
-   id="periodo_menu" 
-   parent="menu_sub"
-   name="Periodo"
-   action="periodo_list_action"
-   sequence="3"
    /> 
 
 <!--form basico para Niño-->   
@@ -186,7 +138,6 @@
 <field name="datetest" placeholder="Fecha de la clase de prueba"  attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'GYMBOREE')]}"/>
 <field name="employed_id" placeholder="Instructora de la clase de prueba" attrs="{'invisible':['|',('claseprueba', '!=', 'Si'),('programastate', '!=', 'GYMBOREE')], 'required':[('claseprueba', '=', 'Si'),('programastate', '=', 'GYMBOREE')]}" domain= "[['department_id' ,'=', programastate]]"/>
 
-
 </group>
  </sheet>
   <div class="oe_chatter">
@@ -206,7 +157,10 @@
 <field name="name" placeholder="Nombre"/>
 <field name="partner_id" placeholder="Padre"/>  
 <field name="birthday" placeholder="Fecha de cumpleaños"/>
-
+<field name="sexo"/>  
+<field name="how"/> 
+<field name="programastate"/>
+<field name="state"/> 
  </tree>
  </field>
  </record>

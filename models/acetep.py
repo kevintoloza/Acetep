@@ -9,18 +9,16 @@ from odoo import SUPERUSER_ID
 
 class Nivel(models.Model):
     _name = 'acetep.nivel'
-    name = fields.Char(string='Nombre')
+    name = fields.Char(string='Nivel')
+    edad = fields.Char(string='Edad')
+ 
 
 class Seccion(models.Model):
     _name ='acetep.seccion' 
-    name = fields.Char(string='Nombre')
-    horario = fields.Char(string='Horario')
+    name = fields.Char(string='Horario')
+    horario = fields.Char(string='Seccion')
     nivel_id = fields.Many2one(comodel_name='acetep.nivel', string='Nivel')
 
-
-class Periodo(models.Model):
-    _name = 'acetep.periodo'
-    name = fields.Char(string='Nombre')
 
 class Partersv(models.Model): #cliente padre
     _inherit = 'res.partner'

@@ -4,7 +4,7 @@
     <report
     id="report_invoice"
     model="account.invoice"
-    string="Reporte personalizado test"
+    string="Factura Acetep"
     report_type="qweb-pdf"
     name="Acetep.report_template_invoice" 
     file="Acetep.report_template_invoice" 
@@ -14,7 +14,7 @@
    <t t-call= "web.basic_layout">
     <t t-foreach="docs" t-as="doc">
     <div class="page">
-    <strong style="font-size:135px;margin-left:390px">ESKABAL,S.A DE C.V</strong>
+    <strong style="font-size:135px;margin-left:390px">Acetep</strong>
     <div class="row">
       <div class="col-3"/>
       <div class="col-3"/>
