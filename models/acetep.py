@@ -23,6 +23,7 @@ class Seccion(models.Model):
 class Partersv(models.Model): #cliente padre
     _inherit = 'res.partner'
     nino_id = fields.One2many(comodel_name='acetep.nino', inverse_name='partner_id' )
+    zona = fields.Char(string="Zona")
   
     @api.onchange('name')
     def set_upper(self):

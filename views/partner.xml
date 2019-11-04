@@ -17,7 +17,18 @@
         </field> 
     </group>
  </xpath>
-
+ <xpath expr="//field[@name='vat']" position="replace">
+ <field name="zona" required="1"/>
+  </xpath>
+  <xpath expr="//field[@name='website']" position="attributes">
+       <attribute name="invisible">1</attribute>
+</xpath>  
+ <xpath expr="//field[@name='lang']" position="attributes">
+       <attribute name="invisible">1</attribute>
+</xpath>  
+ <xpath expr="//field[@name='category_id']" position="attributes">
+       <attribute name="invisible">1</attribute>
+</xpath>  
  </field>
  </record>
 
