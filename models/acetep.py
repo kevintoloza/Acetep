@@ -78,6 +78,19 @@ class Invoice(models.Model):
     nivel_id =fields.Many2one(comodel_name='acetep.nivel', string='Nivel')
     seccion_id =fields.Many2many(comodel_name='acetep.seccion', string='seccion')
     periodo_id =fields.Many2one(comodel_name='acetep.periodo', string='periodo')
+    mes = fields.Selection(selection=[('Enero', 'Enero')
+                                    ,('Febrero', 'Febrero')
+                                    ,('Marzo', 'Marzo')
+                                    ,('Abril', 'Abril')
+                                    ,('Mayo', 'Mayo')
+                                    ,('Junio','Junio')
+                                    ,('Julio','Julio')
+                                    ,('Agosto','Agosto')
+                                    ,('Septiembre','Septiembre')
+                                    ,('Ocutubr','Octubre')
+                                    ,('Noviembre','Noviembre')
+                                    ,('Diciembre','Diciembre')]
+                                    , string='Mes')
 
 
 class Invoiceline(models.Model):
