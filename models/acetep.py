@@ -98,6 +98,10 @@ class Invoiceline(models.Model):
     facturade=fields.Char(string="Factura a nombre de ")
     long_name=fields.Char(string="Nombre Completo")
 
+    def action(self):
+        for r in self:
+            return
+
 class Employed(models.Model):
     _inherit='hr.employee'
     nino_id = fields.One2many(comodel_name='acetep.nino', inverse_name='employed_id' )    

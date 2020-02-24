@@ -7,8 +7,17 @@
 <field name="model">account.invoice</field>
 <field name="inherit_id" ref="account.invoice_form" />
 <field name="arch" type="xml">
+
+<!--button name="action" type="object" string="Imprimir"  #Aca la funcion de jasper con onclick directo en la vista de 
+odoo tambien crear la accion type action ser servidor company tipo de formato reporte trae el tipo y el id--> 
+
+<!--
+onclick="var r=document.getElementById('reporte').children[0].innerHTML;var x=document.getElementById('identidad').children[0].innerHTML.replace(',','');var url=location.protocol + '//' + location.hostname+'/jasperserver/flow.html?_flowId=viewReportFlow&amp;standAlone=true&amp;j_acegi_security_check?&amp;j_username=jasperadmin&amp;j_password=strategik&amp;userLocale=es_SV&amp;_flowId=viewReportFlow&amp;output=pdf&amp;ParentFolderUri=/Strategik_reports/contabilidad/trasacciones&amp;reportUnit=/Strategik_reports/contabilidad/trasacciones/'+r+'&amp;decorate=no&amp;facturaId='+x ;window.open(url);"
+-->
+
+
         
-           <xpath expr="//field[@name='account_id']" position="after">		
+          <xpath expr="//field[@name='account_id']" position="after">		
             <field name="partner_id" invisible="1" />
             <field name="nino_id" domain= "[['partner_id', '=', partner_id]]" />	
 			
